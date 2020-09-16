@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
-import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 
 /**
@@ -46,7 +44,7 @@ class FirstFragment : Fragment() {
     }
 
 
-    fun createQueryURL() : String {
+    private fun createQueryURL() : String {
 
         var url = "http://ergast.com/api/f1/"
 
@@ -55,6 +53,6 @@ class FirstFragment : Fragment() {
             url += numberPicker.value.toString() + ".json"
         }
 
-        return url;
+        return url
     }
 }
