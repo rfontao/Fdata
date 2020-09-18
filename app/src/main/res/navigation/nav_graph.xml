@@ -30,5 +30,21 @@
         <action
                 android:id="@+id/action_SecondFragment_to_FirstFragment"
                 app:destination="@id/FirstFragment"/>
+
+        <action
+                android:id="@+id/action_SecondFragment_to_RaceFragment"
+                app:destination="@id/RaceFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/RaceFragment"
+            android:name="com.rica91935.fdata.RaceFragment"
+            android:label="RaceFragment"
+            tools:layout="@layout/race">
+
+        <argument
+                android:name="race"
+                app:argType="com.rica91935.fdata.Data.Race"/>
+
     </fragment>
 </navigation>

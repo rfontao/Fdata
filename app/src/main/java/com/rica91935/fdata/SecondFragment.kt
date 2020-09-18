@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
@@ -18,6 +20,8 @@ import java.io.IOException
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class SecondFragment : Fragment() {
+
+    lateinit var data : MRData
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -53,10 +57,10 @@ class SecondFragment : Fragment() {
 
                 val body = response.body?.string()
                 val gson = GsonBuilder().create()
-                val result = gson.fromJson(body, MRData::class.java)
+                data = gson.fromJson(body, MRData::class.java)
 
 
-                updateRecyclerView(result.MRData.RaceTable.Races)
+                updateRecyclerView(data.MRData.RaceTable.Races)
             }
         })
     }
@@ -72,6 +76,11 @@ class SecondFragment : Fragment() {
 
             }
         }
+    }
+
+    fun moveToRaceFragment(index : Int){
+        val bundle = bundleOf("race" to data.MRData.RaceTable.Races[index])
+        findNavController().navigate(R.id.action_SecondFragment_to_RaceFragment, bundle)
     }
 
 

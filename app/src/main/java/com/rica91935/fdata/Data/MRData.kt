@@ -1,5 +1,7 @@
 package com.rica91935.fdata.Data
 
+import com.google.gson.annotations.SerializedName
+
 data class MRData(
     val MRData: Data
 ) {
@@ -33,6 +35,7 @@ data class RaceTable(
         return "RaceTable(season='$season', Races=$Races)"
     }
 }
+
 
 data class Race(
     val season: String,

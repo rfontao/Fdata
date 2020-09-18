@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rica91935.fdata.Data.Race
 
@@ -32,8 +34,13 @@ class ResultViewAdapter(private val myDataset: List<Race>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+
         holder.textView.findViewById<TextView>(R.id.track_name).text = myDataset[position].raceName
         holder.textView.findViewById<TextView>(R.id.round).text = myDataset[position].round
+        holder.textView.setOnClickListener {
+            val bundle = bundleOf("race" to myDataset[position])
+            it.findNavController().navigate(R.id.action_SecondFragment_to_RaceFragment, bundle)
+        }
 
     }
 

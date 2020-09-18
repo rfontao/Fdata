@@ -11,4 +11,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="query"/>
     <string name="query_button">Query</string>
+    <string name="round">Round:</string>
+    <string name="circuit">Circuit:</string>
 </resources>
