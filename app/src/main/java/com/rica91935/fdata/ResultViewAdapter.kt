@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.rica91935.fdata.Data.Race
+import com.rica91935.fdata.data.Race
 
 class ResultViewAdapter(private val myDataset: List<Race>) :
     RecyclerView.Adapter<ResultViewAdapter.MyViewHolder>() {

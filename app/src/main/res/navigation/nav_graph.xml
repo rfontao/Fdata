@@ -44,7 +44,7 @@
 
         <argument
                 android:name="race"
-                app:argType="com.rica91935.fdata.Data.Race"/>
+                app:argType="com.rica91935.fdata.data.Race"/>
 
     </fragment>
 </navigation>

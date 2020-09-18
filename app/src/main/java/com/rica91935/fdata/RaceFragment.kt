@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.rica91935.fdata.Data.Race
+import com.rica91935.fdata.data.Race
 import com.rica91935.fdata.databinding.RaceBinding
 
 

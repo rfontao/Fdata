@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
-import com.rica91935.fdata.Data.MRData
-import com.rica91935.fdata.Data.Race
+import com.rica91935.fdata.data.MRData
+import com.rica91935.fdata.data.Race
 import okhttp3.*
 import java.io.IOException
 

@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="race"
-                type="com.rica91935.fdata.Data.Race" />
+                type="com.rica91935.fdata.data.Race" />
     </data>
 
     <LinearLayout
