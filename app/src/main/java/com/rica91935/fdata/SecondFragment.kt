@@ -38,7 +38,7 @@ class SecondFragment : Fragment() {
     }
 
 
-    fun queryURL(url: String?) {
+    private fun queryURL(url: String?) {
         val request = Request.Builder().url(url.toString()).build()
 
 
@@ -46,6 +46,7 @@ class SecondFragment : Fragment() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 println("Could not reach: {$url}")
+                e.printStackTrace()
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -55,23 +56,21 @@ class SecondFragment : Fragment() {
                 val result = gson.fromJson(body, MRData::class.java)
 
 
-                activity?.runOnUiThread {
-                    updateRecyclerView(result.MRData.RaceTable.Races)
-                }
+                updateRecyclerView(result.MRData.RaceTable.Races)
             }
         })
-
     }
 
     fun updateRecyclerView(raceList : List<Race>){
-        view!!.findViewById<RecyclerView>(R.id.my_recycler_view).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@SecondFragment.context)
+        activity?.runOnUiThread {
+            view!!.findViewById<RecyclerView>(R.id.my_recycler_view).apply {
+                // use this setting to improve performance if you know that changes
+                // in content do not change the layout size of the RecyclerView
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(this@SecondFragment.context)
+                adapter = ResultViewAdapter(raceList)
 
-            adapter = ResultViewAdapter(raceList)
-
+            }
         }
     }
 
