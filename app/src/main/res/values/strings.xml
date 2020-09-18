@@ -13,4 +13,8 @@
     <string name="query_button">Query</string>
     <string name="round">Round:</string>
     <string name="circuit">Circuit:</string>
+    <string name="url">URL:</string>
+    <string name="date">Date:</string>
+    <string name="country">Country:</string>
+    <string name="race_name">Race Name:</string>
 </resources>

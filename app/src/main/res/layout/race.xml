@@ -10,7 +10,8 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
         <LinearLayout
                 android:layout_width="wrap_content"
@@ -45,6 +46,82 @@
 
             <TextView
                     android:text="@{race.circuit.circuitName}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:text="@string/url"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                    android:text="@{race.url}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+            >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:text="@string/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                    android:text="@{race.date}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:text="@string/country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                    android:text="@{race.circuit.location.country}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:text="@string/race_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                    android:text="@{race.raceName}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
             >

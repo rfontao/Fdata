@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
@@ -77,11 +75,5 @@ class SecondFragment : Fragment() {
             }
         }
     }
-
-    fun moveToRaceFragment(index : Int){
-        val bundle = bundleOf("race" to data.MRData.RaceTable.Races[index])
-        findNavController().navigate(R.id.action_SecondFragment_to_RaceFragment, bundle)
-    }
-
 
 }
