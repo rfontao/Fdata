@@ -33,26 +33,14 @@ class SecondFragment : Fragment() {
         val url : String? = arguments?.getString("queryURL")
         view.findViewById<TextView>(R.id.textview_second).text = url
 
-        view.findViewById<RecyclerView>(R.id.my_recycler_view).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@SecondFragment.context)
-            // specify an viewAdapter (see also next example)
-
-            val raceList : List<Race>? = queryURL(url)?.MRData?.RaceTable?.Races
-
-            adapter = raceList?.let { ResultViewAdapter(it) }
-
-        }
+        queryURL(url)
 
     }
 
 
-    fun queryURL(url: String?): MRData? {
+    fun queryURL(url: String?) {
         val request = Request.Builder().url(url.toString()).build()
 
-        var result: MRData? = null
 
         val client = OkHttpClient()
         client.newCall(request).enqueue(object : Callback {
@@ -64,13 +52,27 @@ class SecondFragment : Fragment() {
 
                 val body = response.body?.string()
                 val gson = GsonBuilder().create()
-                result = gson.fromJson(body, MRData::class.java)
+                val result = gson.fromJson(body, MRData::class.java)
 
 
+                activity?.runOnUiThread {
+                    updateRecyclerView(result.MRData.RaceTable.Races)
+                }
             }
         })
 
-        return result
+    }
+
+    fun updateRecyclerView(raceList : List<Race>){
+        view!!.findViewById<RecyclerView>(R.id.my_recycler_view).apply {
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@SecondFragment.context)
+
+            adapter = ResultViewAdapter(raceList)
+
+        }
     }
 
 
