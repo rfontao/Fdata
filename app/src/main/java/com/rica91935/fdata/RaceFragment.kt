@@ -8,9 +8,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.rica91935.fdata.data.Race
 import com.rica91935.fdata.databinding.RaceBinding
+import org.osmdroid.api.IMapController
+import org.osmdroid.config.Configuration
+import org.osmdroid.util.GeoPoint
+import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.Marker
 
 
 class RaceFragment : Fragment() {
+
+    lateinit var race : Race
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,13 +29,28 @@ class RaceFragment : Fragment() {
         )
         val view: View = binding.root
 
-        val race : Race? = arguments?.get("race") as Race?
+        race  = arguments?.get("race") as Race
         binding.race = race
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val map = view.findViewById<MapView>(R.id.map)
+
+        Configuration.getInstance().userAgentValue = context?.packageName
+
+        val mapController: IMapController = map.controller
+        mapController.setZoom(15.0)
+
+        val startPoint = GeoPoint(race.Circuit.Location.lat.toDouble(), race.Circuit.Location.long.toDouble())
+        mapController.setCenter(startPoint)
+
+        val startMarker = Marker(map)
+        startMarker.position = startPoint
+        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+        map.overlays.add(startMarker)
     }
 
 
