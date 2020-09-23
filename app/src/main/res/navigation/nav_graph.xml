@@ -7,9 +7,9 @@
 
     <fragment
             android:id="@+id/FirstFragment"
-            android:name="com.rica91935.fdata.FirstFragment"
+            android:name="com.rica91935.fdata.QueryFragment"
             android:label="@string/first_fragment_label"
-            tools:layout="@layout/fragment_first">
+            tools:layout="@layout/query">
 
 
         <action
@@ -18,9 +18,9 @@
     </fragment>
     <fragment
             android:id="@+id/SecondFragment"
-            android:name="com.rica91935.fdata.SecondFragment"
+            android:name="com.rica91935.fdata.RaceListFragment"
             android:label="@string/second_fragment_label"
-            tools:layout="@layout/fragment_second">
+            tools:layout="@layout/race_list">
 
         <argument
                 android:name="queryURL"
@@ -38,9 +38,9 @@
 
     <fragment
             android:id="@+id/RaceFragment"
-            android:name="com.rica91935.fdata.RaceFragment"
+            android:name="com.rica91935.fdata.RaceInfoFragment"
             android:label="RaceFragment"
-            tools:layout="@layout/race">
+            tools:layout="@layout/race_info">
 
         <argument
                 android:name="race"

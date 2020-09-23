@@ -17,7 +17,7 @@ import java.io.IOException
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class RaceListFragment : Fragment() {
 
     lateinit var data : MRData
 
@@ -26,7 +26,7 @@ class SecondFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return inflater.inflate(R.layout.race_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,8 +69,8 @@ class SecondFragment : Fragment() {
                 // use this setting to improve performance if you know that changes
                 // in content do not change the layout size of the RecyclerView
                 setHasFixedSize(true)
-                layoutManager = LinearLayoutManager(this@SecondFragment.context)
-                adapter = ResultViewAdapter(raceList)
+                layoutManager = LinearLayoutManager(this@RaceListFragment.context)
+                adapter = RaceListViewAdapter(raceList)
 
             }
         }

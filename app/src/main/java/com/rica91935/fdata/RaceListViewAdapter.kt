@@ -9,8 +9,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rica91935.fdata.data.Race
 
-class ResultViewAdapter(private val myDataset: List<Race>) :
-    RecyclerView.Adapter<ResultViewAdapter.MyViewHolder>() {
+class RaceListViewAdapter(private val myDataset: List<Race>) :
+    RecyclerView.Adapter<RaceListViewAdapter.MyViewHolder>() {
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -24,7 +24,7 @@ class ResultViewAdapter(private val myDataset: List<Race>) :
                                     viewType: Int): MyViewHolder {
         // create a new view
         val textView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_text_view, parent, false)
+            .inflate(R.layout.race_list_recycler_text_view, parent, false)
         // set the view's size, margins, paddings and layout parameters
 
         return MyViewHolder(textView)
@@ -38,7 +38,7 @@ class ResultViewAdapter(private val myDataset: List<Race>) :
         holder.textView.findViewById<TextView>(R.id.track_name).text = myDataset[position].raceName
         holder.textView.findViewById<TextView>(R.id.round).text = myDataset[position].round
         holder.textView.setOnClickListener {
-            val bundle = bundleOf("race" to myDataset[position])
+            val bundle = bundleOf("race_info" to myDataset[position])
             it.findNavController().navigate(R.id.action_SecondFragment_to_RaceFragment, bundle)
         }
 

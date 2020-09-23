@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class QueryFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class FirstFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.query, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

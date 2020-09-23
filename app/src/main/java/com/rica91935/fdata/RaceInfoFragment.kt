@@ -15,7 +15,7 @@ import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 
 
-class RaceFragment : Fragment() {
+class RaceInfoFragment : Fragment() {
 
     lateinit var race : Race
 
@@ -25,11 +25,11 @@ class RaceFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding: RaceBinding = DataBindingUtil.inflate(
-            inflater, R.layout.race, container, false
+            inflater, R.layout.race_info, container, false
         )
         val view: View = binding.root
 
-        race  = arguments?.get("race") as Race
+        race  = arguments?.get("race_info") as Race
         binding.race = race
         return view
     }
