@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.rica91935.fdata.data.Race
-import com.rica91935.fdata.databinding.RaceBinding
+import com.rica91935.fdata.databinding.RaceInfoBinding
 import org.osmdroid.api.IMapController
 import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
@@ -24,7 +24,7 @@ class RaceInfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding: RaceBinding = DataBindingUtil.inflate(
+        val binding: RaceInfoBinding = DataBindingUtil.inflate(
             inflater, R.layout.race_info, container, false
         )
         val view: View = binding.root

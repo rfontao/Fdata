@@ -39,7 +39,7 @@ class RaceListViewAdapter(private val myDataset: List<Race>) :
         holder.textView.findViewById<TextView>(R.id.round).text = myDataset[position].round
         holder.textView.setOnClickListener {
             val bundle = bundleOf("race_info" to myDataset[position])
-            it.findNavController().navigate(R.id.action_SecondFragment_to_RaceFragment, bundle)
+            it.findNavController().navigate(R.id.action_Show_Race, bundle)
         }
 
     }

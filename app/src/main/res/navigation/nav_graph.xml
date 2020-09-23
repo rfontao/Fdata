@@ -3,23 +3,35 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_graph"
-            app:startDestination="@id/FirstFragment">
+            app:startDestination="@id/QuerySelectionFragment">
 
     <fragment
-            android:id="@+id/FirstFragment"
-            android:name="com.rica91935.fdata.QueryFragment"
-            android:label="@string/first_fragment_label"
-            tools:layout="@layout/query">
+            android:id="@+id/QuerySelectionFragment"
+            android:name="com.rica91935.fdata.QuerySelectionFragment"
+            android:label="QueryRacesFragment"
+            tools:layout="@layout/query_options">
 
 
         <action
-                android:id="@+id/action_FirstFragment_to_SecondFragment"
-                app:destination="@id/SecondFragment"/>
+                android:id="@+id/action_Race_Query"
+                app:destination="@id/QueryRacesFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/QueryRacesFragment"
+            android:name="com.rica91935.fdata.QueryRacesFragment"
+            android:label="QueryRacesFragment"
+            tools:layout="@layout/query_races">
+
+
+        <action
+                android:id="@+id/action_Show_Race_List"
+                app:destination="@id/RaceListFragment"/>
     </fragment>
     <fragment
-            android:id="@+id/SecondFragment"
+            android:id="@+id/RaceListFragment"
             android:name="com.rica91935.fdata.RaceListFragment"
-            android:label="@string/second_fragment_label"
+            android:label="RaceListFragment"
             tools:layout="@layout/race_list">
 
         <argument
@@ -28,18 +40,14 @@
                 android:defaultValue="" />
 
         <action
-                android:id="@+id/action_SecondFragment_to_FirstFragment"
-                app:destination="@id/FirstFragment"/>
-
-        <action
-                android:id="@+id/action_SecondFragment_to_RaceFragment"
-                app:destination="@id/RaceFragment"/>
+                android:id="@+id/action_Show_Race"
+                app:destination="@id/RaceInfoFragment"/>
     </fragment>
 
     <fragment
-            android:id="@+id/RaceFragment"
+            android:id="@+id/RaceInfoFragment"
             android:name="com.rica91935.fdata.RaceInfoFragment"
-            android:label="RaceFragment"
+            android:label="RaceInfoFragment"
             tools:layout="@layout/race_info">
 
         <argument

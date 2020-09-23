@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class QueryFragment : Fragment() {
+class QueryRacesFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class QueryFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.query, container, false)
+        return inflater.inflate(R.layout.query_races, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class QueryFragment : Fragment() {
         view.findViewById<Button>(R.id.query_button).setOnClickListener {
 
             val bundle = bundleOf("queryURL" to createQueryURL())
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
+            findNavController().navigate(R.id.action_Show_Race_List, bundle)
 
         }
 
