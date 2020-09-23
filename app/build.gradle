@@ -53,4 +53,6 @@ dependencies {
 
     implementation 'org.osmdroid:osmdroid-android:6.1.8'
 
+    implementation "androidx.cardview:cardview:1.0.0"
+
 }
