@@ -21,7 +21,7 @@
             android:id="@+id/QueryRacesFragment"
             android:name="com.rica91935.fdata.QueryRacesFragment"
             android:label="QueryRacesFragment"
-            tools:layout="@layout/query_races">
+            tools:layout="@layout/query_by_year">
 
 
         <action

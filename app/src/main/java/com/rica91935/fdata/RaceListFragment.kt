@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
-import com.rica91935.fdata.data.MRData
+import com.rica91935.fdata.data.MRDataRaces
 import com.rica91935.fdata.data.Race
 import okhttp3.*
 import java.io.IOException
@@ -19,7 +19,7 @@ import java.io.IOException
  */
 class RaceListFragment : Fragment() {
 
-    lateinit var data : MRData
+    lateinit var data : MRDataRaces
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +55,7 @@ class RaceListFragment : Fragment() {
 
                 val body = response.body?.string()
                 val gson = GsonBuilder().create()
-                data = gson.fromJson(body, MRData::class.java)
+                data = gson.fromJson(body, MRDataRaces::class.java)
 
 
                 updateRecyclerView(data.MRData.RaceTable.Races)

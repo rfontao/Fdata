@@ -1,24 +1,21 @@
 package com.rica91935.fdata
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class QueryRacesFragment : Fragment() {
+class QueryDriverStandings : Fragment() {
 
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.query_by_year, container, false)
@@ -50,7 +47,7 @@ class QueryRacesFragment : Fragment() {
 
         val numberPicker = view?.findViewById<NumberPicker>(R.id.numberPicker)
         if(numberPicker != null){
-            url += numberPicker.value.toString() + ".json"
+            url += numberPicker.value.toString() + "driverStandings.json"
         }
 
         return url
