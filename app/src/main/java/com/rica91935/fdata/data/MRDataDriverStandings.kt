@@ -4,10 +4,10 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class MRDataStandings(
+data class MRDataDriverStandings(
     val MRData: DataStandings
 ) : Parcelable{
     override fun toString(): String {
-        return "MRData(Data=$MRData)"
+        return "MRDataDriverStandings(MRData=$MRData)"
     }
 }

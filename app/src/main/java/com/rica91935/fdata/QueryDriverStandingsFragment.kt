@@ -10,7 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
-class QueryDriverStandings : Fragment() {
+class QueryDriverStandingsFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -34,7 +34,7 @@ class QueryDriverStandings : Fragment() {
         view.findViewById<Button>(R.id.query_button).setOnClickListener {
 
             val bundle = bundleOf("queryURL" to createQueryURL())
-            findNavController().navigate(R.id.action_Show_Race_List, bundle)
+            findNavController().navigate(R.id.action_Show_Driver_Standings_List, bundle)
 
         }
 
@@ -47,7 +47,7 @@ class QueryDriverStandings : Fragment() {
 
         val numberPicker = view?.findViewById<NumberPicker>(R.id.numberPicker)
         if(numberPicker != null){
-            url += numberPicker.value.toString() + "driverStandings.json"
+            url += numberPicker.value.toString() + "/driverStandings.json"
         }
 
         return url

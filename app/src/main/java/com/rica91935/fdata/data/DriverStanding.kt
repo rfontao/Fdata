@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Standings(
+data class DriverStanding(
     val position: String,
     val positionText: String,
     val points: String,
@@ -13,7 +13,6 @@ data class Standings(
     val Constructors: List<Constructor>
 ) : Parcelable {
     override fun toString(): String {
-        return "Standings(position='$position', positionText='$positionText', points='$points', wins='$wins', Driver=$Driver, Constructors=$Constructors)"
+        return "DriverStanding(position='$position', positionText='$positionText', points='$points', wins='$wins', Driver=$Driver, Constructors=$Constructors)"
     }
-
 }

@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class StandingsListItem(
     val season: String,
     val round: String,
-    val DriverStandings: List<Standings>
+    val DriverStandings: List<DriverStanding>
 ) : Parcelable {
     override fun toString(): String {
         return "StandingsListItem(season='$season', round='$round', DriverStandings=$DriverStandings)"

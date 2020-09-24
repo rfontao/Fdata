@@ -8,7 +8,7 @@ data class MRDataRaces(
     val MRData: DataRace
 ) : Parcelable{
     override fun toString(): String {
-        return "MRData(Data=$MRData)"
+        return "MRDataRaces(MRData=$MRData)"
     }
 }
 

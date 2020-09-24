@@ -15,6 +15,10 @@
         <action
                 android:id="@+id/action_Race_Query"
                 app:destination="@id/QueryRacesFragment"/>
+
+        <action
+                android:id="@+id/action_Driver_Standings_Query"
+                app:destination="@id/QueryDriverStandingsFragment"/>
     </fragment>
 
     <fragment
@@ -55,4 +59,30 @@
                 app:argType="com.rica91935.fdata.data.Race"/>
 
     </fragment>
+
+    <fragment
+            android:id="@+id/QueryDriverStandingsFragment"
+            android:name="com.rica91935.fdata.QueryDriverStandingsFragment"
+            android:label="QueryDriverStandingsFragment"
+            tools:layout="@layout/query_by_year">
+
+
+        <action
+                android:id="@+id/action_Show_Driver_Standings_List"
+                app:destination="@id/DriverStandingsListFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/DriverStandingsListFragment"
+            android:name="com.rica91935.fdata.DriverStandingsListFragment"
+            android:label="DriverStandingsListFragment"
+            tools:layout="@layout/driver_standings_list">
+
+        <argument
+                android:name="queryURL"
+                app:argType="string"
+                android:defaultValue="" />
+
+    </fragment>
+
 </navigation>

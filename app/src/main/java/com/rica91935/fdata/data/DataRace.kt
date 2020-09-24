@@ -14,6 +14,6 @@ data class DataRace(
     val RaceTable: RaceTable
 ) : Parcelable {
     override fun toString(): String {
-        return "Data(xmlns='$xmlns', series='$series', url='$url', limit='$limit', offset='$offset', total='$total', RaceTable=$RaceTable)"
+        return "DataRace(xmlns='$xmlns', series='$series', url='$url', limit='$limit', offset='$offset', total='$total', RaceTable=$RaceTable)"
     }
 }

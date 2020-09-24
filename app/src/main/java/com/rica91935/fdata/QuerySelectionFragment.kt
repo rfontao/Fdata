@@ -40,7 +40,7 @@ class QuerySelectionFragment : Fragment() {
             findNavController().navigate(R.id.action_Race_Query)
         }
         view.findViewById<Button>(R.id.standings_button).setOnClickListener{
-            findNavController().navigate(R.id.action_Race_Query)
+            findNavController().navigate(R.id.action_Driver_Standings_Query)
         }
 
     }
