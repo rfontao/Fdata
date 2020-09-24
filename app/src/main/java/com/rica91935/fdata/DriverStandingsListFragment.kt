@@ -1,17 +1,16 @@
 package com.rica91935.fdata
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
 import com.rica91935.fdata.data.DriverStanding
 import com.rica91935.fdata.data.MRDataDriverStandings
-import com.rica91935.fdata.data.Race
 import okhttp3.*
 import java.io.IOException
 
@@ -23,8 +22,8 @@ class DriverStandingsListFragment : Fragment() {
     lateinit var data : MRDataDriverStandings
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.driver_standings_list, container, false)
@@ -64,15 +63,11 @@ class DriverStandingsListFragment : Fragment() {
         })
     }
 
-    fun updateRecyclerView(driverStandingsList : List<DriverStanding>){
+    fun updateRecyclerView(driverStandingsList: List<DriverStanding>){
         activity?.runOnUiThread {
             view!!.findViewById<RecyclerView>(R.id.driver_standing_recycler_view).apply {
-                // use this setting to improve performance if you know that changes
-                // in content do not change the layout size of the RecyclerView
-                setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@DriverStandingsListFragment.context)
-                adapter = DriverStandingsListViewAdapter(driverStandingsList)
-
+                adapter = DriverStandingsListViewAdapter(driverStandingsList, driverStandingsList)
             }
         }
     }
