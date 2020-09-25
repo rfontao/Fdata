@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseExpandableListAdapter
+import android.widget.ExpandableListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +33,14 @@ class DriverStandingsListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+/*
+        view.findViewById<RecyclerView>(R.id.driver_standing_expandable_view).apply {
+            layoutManager = LinearLayoutManager(this@DriverStandingsListFragment.context)
+            adapter = RaceListViewAdapter(emptyList())
+        }
+*/
 
         val url : String? = arguments?.getString("queryURL")
         view.findViewById<TextView>(R.id.textview_second).text = url
@@ -65,10 +75,7 @@ class DriverStandingsListFragment : Fragment() {
 
     fun updateRecyclerView(driverStandingsList: List<DriverStanding>){
         activity?.runOnUiThread {
-            view!!.findViewById<RecyclerView>(R.id.driver_standing_recycler_view).apply {
-                layoutManager = LinearLayoutManager(this@DriverStandingsListFragment.context)
-                adapter = DriverStandingsListViewAdapter(driverStandingsList, driverStandingsList)
-            }
+            view!!.findViewById<ExpandableListView>(R.id.driver_standing_expandable_view).setAdapter(DriverStandingsListViewAdapter(driverStandingsList))
         }
     }
 

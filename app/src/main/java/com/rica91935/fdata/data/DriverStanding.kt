@@ -12,7 +12,7 @@ data class DriverStanding (
     val wins: String,
     val Driver: Driver,
     val Constructors: List<Constructor>
-) : Parcelable, ExpandableGroup<Driver>("A",ArrayList()) {
+) : Parcelable, ExpandableGroup<Constructor>(Driver.givenName + Driver.familyName, Constructors) {
     override fun toString(): String {
         return "DriverStanding(position='$position', positionText='$positionText', points='$points', wins='$wins', Driver=$Driver, Constructors=$Constructors)"
     }
