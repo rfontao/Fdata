@@ -38,7 +38,7 @@ class DriverStandingsListViewAdapter(private val standing: List<DriverStanding>)
     }
 
     override fun getChildrenCount(p0: Int): Int {
-        return standing.size
+        return standing[0].Constructors.size
     }
 
     override fun getGroup(p0: Int): Any {
@@ -46,7 +46,7 @@ class DriverStandingsListViewAdapter(private val standing: List<DriverStanding>)
     }
 
     override fun getChild(p0: Int, p1: Int): Any {
-        return standing[p0]
+        return standing[p0].Constructors[0]
     }
 
     override fun getGroupId(p0: Int): Long {
