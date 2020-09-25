@@ -36,23 +36,10 @@ class QueryRacesFragment : Fragment() {
 
         view.findViewById<Button>(R.id.query_button).setOnClickListener {
 
-            val bundle = bundleOf("queryURL" to createQueryURL())
+            val bundle = bundleOf("yearToQuery" to numberPicker.value)
             findNavController().navigate(R.id.action_Show_Race_List, bundle)
 
         }
 
-    }
-
-
-    private fun createQueryURL() : String {
-
-        var url = "https://ergast.com/api/f1/"
-
-        val numberPicker = view?.findViewById<NumberPicker>(R.id.numberPicker)
-        if(numberPicker != null){
-            url += numberPicker.value.toString() + ".json"
-        }
-
-        return url
     }
 }

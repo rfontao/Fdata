@@ -8,11 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.GsonBuilder
 import com.rica91935.fdata.data.MRDataRaces
 import com.rica91935.fdata.data.Race
-import okhttp3.*
-import java.io.IOException
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -32,38 +29,16 @@ class RaceListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val url : String? = arguments?.getString("queryURL")
-        view.findViewById<TextView>(R.id.textview_second).text = url
+        val year: Int? = arguments?.getInt("yearToQuery")
+        view.findViewById<TextView>(R.id.textview_second).text = year.toString()
 
-        queryURL(url)
 
+        if (year != null) {
+            ErgaastAPIFetcher.queryRacesByYear(year,this)
+        }
     }
 
-
-    private fun queryURL(url: String?) {
-        val request = Request.Builder().url(url.toString()).build()
-
-
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                println("Could not reach: {$url}")
-                e.printStackTrace()
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-
-                val body = response.body?.string()
-                val gson = GsonBuilder().create()
-                data = gson.fromJson(body, MRDataRaces::class.java)
-
-
-                updateRecyclerView(data.MRData.RaceTable.Races)
-            }
-        })
-    }
-
-    fun updateRecyclerView(raceList : List<Race>){
+    fun updateViewFromData(raceList : List<Race>){
         activity?.runOnUiThread {
             view!!.findViewById<RecyclerView>(R.id.my_recycler_view).apply {
                 // use this setting to improve performance if you know that changes

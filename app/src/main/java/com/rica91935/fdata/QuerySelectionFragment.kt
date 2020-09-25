@@ -22,20 +22,6 @@ class QuerySelectionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*
-        val gridView = view.findViewById<CardView>(R.id.grid_view)
-        gridView.get(0).findViewById<TextView>()
-
-        gridView[0].setOnClickListener {
-            findNavController().navigate(R.id.action_Race_Query)
-        }
-
-        gridView[1].setOnClickListener {
-            findNavController().navigate(R.id.action_Race_Query)
-        }
-        */
-
-
         view.findViewById<Button>(R.id.races_button).setOnClickListener{
             findNavController().navigate(R.id.action_Race_Query)
         }

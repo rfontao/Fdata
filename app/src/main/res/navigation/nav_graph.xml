@@ -39,9 +39,9 @@
             tools:layout="@layout/race_list">
 
         <argument
-                android:name="queryURL"
-                app:argType="string"
-                android:defaultValue="" />
+                android:name="yearToQuery"
+                app:argType="integer"
+                android:defaultValue="1975" />
 
         <action
                 android:id="@+id/action_Show_Race"
@@ -79,9 +79,9 @@
             tools:layout="@layout/driver_standings_list">
 
         <argument
-                android:name="queryURL"
-                app:argType="string"
-                android:defaultValue="" />
+                android:name="yearToQuery"
+                app:argType="integer"
+                android:defaultValue="1975" />
 
     </fragment>
 
